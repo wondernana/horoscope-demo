@@ -6,7 +6,7 @@ import java.time.MonthDay;
 
 import static org.junit.Assert.assertEquals;
 
-public class ZodiacTests {
+public class ZodiacCalculationTests {
         @Test
         // проверяет определение знака зодиака по граничным значениям начала периода
        public void testCalculationByStartDate() {

@@ -2,15 +2,29 @@ package dbproject;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Horoscope {
-    private final ZodiacSigns zodiacSign;
-    private final Map<ZodiacSigns, String> predictionsMap = new EnumMap<ZodiacSigns, String>(ZodiacSigns.class);
+    ZodiacSigns zodiacSign;
+    Map<ZodiacSigns, String> predictionsMap = new EnumMap<ZodiacSigns, String>(ZodiacSigns.class);
 
     public Horoscope(ZodiacSigns zodiacSign) {
         fillMap();
         this.zodiacSign = zodiacSign;
     }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Horoscope horoscope = (Horoscope) o;
+//        return zodiacSign == horoscope.zodiacSign && predictionsMap.equals(horoscope.predictionsMap);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(zodiacSign, predictionsMap);
+//    }
 
     private void fillMap() {
         if (predictionsMap.isEmpty()) {
@@ -29,7 +43,7 @@ public class Horoscope {
         }
     }
 
-    public void showPrediction() {
-        System.out.println(predictionsMap.get(zodiacSign));
+    public String showPrediction() {
+       return predictionsMap.get(zodiacSign);
     }
 }

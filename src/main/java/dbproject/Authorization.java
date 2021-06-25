@@ -69,8 +69,9 @@ public class Authorization {
     }
 
     public void getWelcomeMessage() {
+        String prediction = new Horoscope(user.getZodiac()).showPrediction();
         System.out.println("Welcome " + user.getLogin() + "! " + "\n" + "It seems like you're " +
-                user.getZodiac() + ", here's your prediction:");
-        new Horoscope(user.getZodiac()).showPrediction();
+                user.getZodiac() + ", here's your prediction:" + "\n" + prediction);
+
     }
 }
