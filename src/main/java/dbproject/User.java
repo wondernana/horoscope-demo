@@ -19,8 +19,8 @@ public class User extends Base {
         this.birthday = birthday;
     }
 
+    // метод для вычисления знака зодиака по дню рождения
    public void calculateZodiacSign() {
-       System.out.println(getBirthday());
         MonthDay bd = getBirthday();
         if (bd.isAfter(MonthDay.of(1,20)) && (bd.isBefore(MonthDay.of(2,19)))) {
             setZodiacSign(ZodiacSigns.AQUARIUS);
@@ -49,51 +49,10 @@ public class User extends Base {
             setZodiacSign(ZodiacSigns.CAPRICORN);
         }
         else System.out.println("no zodiac match");
-       System.out.println(this.getZodiac());
    }
 
-
-//                try {
-//                  //  BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//                    while (!isValid) {
-//                        System.out.println("Enter your " + param + ":");
-//                        input = reader.readLine();
-//                        if (input.isBlank()) {
-//                            System.out.println(param + " should contain at least 1 character!");
-//                        } else isValid = true;
-//                    }
-//                    //reader.close();
-//                }
-//             catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        return input;
-//    }
-
-//        while (!isValid) {
-//            System.out.println("Enter your " + param + ":");
-//            Scanner scanner = new Scanner(System.in);
-//            input = scanner.next();
-//            scanner.close();
-//            if (!input.isBlank()) {
-//                isValid = true;
-//            } else {
-//                System.out.println(param + " should contain at least 1 character!");
-//            }
-//        }
-//        return input;
-//    }
-
-
+   // метод для реристрации нового юзера
     public void register() {
-     //  String param1 = "Login";
-     //  String login = null;
-     //  while(login == null) {
-     //      login = processInitUserInput(param1);
-     //  }
-     //  setLogin(login);
-     //  String param2 = "Password";
-     //  String password = null;
         String[] params = {"Login", "Password", "Birthday"};
         for (String param : params) {
                 switch (param) {
@@ -111,18 +70,21 @@ public class User extends Base {
             } new Authorization(this).addUser();
         }
 
+    // метод для авторизации существующего юзера
     public void login() {
         setLogin(processUserInput("Login"));
         setPassword(processUserInput("Password"));
         new Authorization(this).findUser();
     }
 
+
     // метод-заглушка, создает юзера с захардкодеными параметрами и выводит его гороскоп
     void mock() {
-        User stub = new User ("Bruce Wayne", "definitelyNotABatman", MonthDay.of(2, 19));
+        User stub = new User ("Bruce Wayne", "definitelynotbatman", MonthDay.of(2, 19));
         stub.calculateZodiacSign();
         new Authorization(stub).getWelcomeMessage();
     }
+
 
     public String getPassword() {
         return password;

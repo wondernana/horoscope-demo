@@ -12,19 +12,7 @@ public class Horoscope {
         fillMap();
         this.zodiacSign = zodiacSign;
     }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Horoscope horoscope = (Horoscope) o;
-//        return zodiacSign == horoscope.zodiacSign && predictionsMap.equals(horoscope.predictionsMap);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(zodiacSign, predictionsMap);
-//    }
+
 
     private void fillMap() {
         if (predictionsMap.isEmpty()) {
