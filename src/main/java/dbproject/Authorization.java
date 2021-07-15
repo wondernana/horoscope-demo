@@ -22,7 +22,6 @@ public class Authorization {
             PreparedStatement ps = DBConnection.getConnectionInstance().prepareStatement(query);
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword());
-            System.out.println(ps);
             ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     user.setBirthday(MonthDay.parse(rs.getDate("birthday").toString().substring(5),
@@ -75,7 +74,7 @@ public class Authorization {
     public void getWelcomeMessage() {
         String prediction = new Horoscope(user.getZodiac()).showPrediction();
         System.out.println("Welcome " + user.getLogin() + "! " + "\n" + "It seems like you're " +
-                user.getZodiac() + ", here's your prediction:" + "\n" + prediction);
+                user.getZodiac() + ", here's your prediction:" + "\n" + prediction + "\n");
 
     }
 }
